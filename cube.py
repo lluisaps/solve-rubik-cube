@@ -101,18 +101,17 @@ class Cube:
             d[0], d[3], d[6] = f[0], f[3], f[6]
             f[0], f[3], f[6] = salvo
 
-    def scramble(self, moves=20, seed=None):
-        rng = random.Random(seed)
+    def scramble(self, moves=20):
         ultima_face = None
         sequencia = []
 
         for _ in range(moves):
             # Uma face dif da anterior
-            face = rng.choice(FACES)
+            face = random.choice(FACES)
             while face == ultima_face:
-                face = rng.choice(FACES)
+                face = random.choice(FACES)
 
-            sufixo = rng.choice(['', "'", '2'])
+            sufixo = random.choice(['', "'", '2'])
             movimento = face + sufixo
 
             sequencia.append(movimento)
